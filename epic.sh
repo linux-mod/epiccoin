@@ -1,13 +1,13 @@
 #!/bin/bash
 
 TMP_FOLDER=$(mktemp -d)
-CONFIG_FILE='epic.conf'
-CONFIGFOLDER='/root/.epic'
-COIN_DAEMON='/usr/local/bin/epicd'
-COIN_CLI='/usr/local/bin/epic-cli'
-COIN_REPO='https://www.dropbox.com/s/2ydbyu0lnwjbx0c/epic-linux.tar.gz'
-COIN_NAME='EPIC'
-COIN_PORT=21500
+CONFIG_FILE='cds.conf'
+CONFIGFOLDER='/root/.cds'
+COIN_DAEMON='/usr/local/bin/cloudnoded'
+COIN_CLI='/usr/local/bin/cloudnode-cli'
+COIN_REPO='https://github.com/udaydeep1992/cloudnode-v2/releases/download/v2/cloudnode-v2-linux64.tar.gz'
+COIN_NAME='CDS'
+COIN_PORT=3718
 
 
 NODEIP=$(curl -s4 icanhazip.com)
@@ -47,7 +47,7 @@ echo -e "${RED}"
 sudo ufw --force enable
 echo -e "${NC}"
 
-#Generating Random Password for epicd RPC
+#Generating Random Password for cloudnoded RPC
 rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 
 #Create 2GB swap file
@@ -182,26 +182,7 @@ listen=1
 server=1
 daemon=1
 port=$COIN_PORT
-addnode=45.32.125.213:21500
-addnode=209.95.53.4:21500
-addnode=103.72.162.143:21500
-addnode=60.54.88.105:21500
-addnode=149.28.68.21:21500
-addnode=149.28.130.182:21500
-addnode=149.28.163.67:21500
-addnode=103.72.163.99:21500
-addnode=103.72.162.142:21500
-addnode=79.198.191.160:21500
-addnode=61.144.104.52:21500
-addnode=46.223.129.34:21500
-addnode=83.220.239.51:21500
-addnode=212.14.205.116:21500
-addnode=37.232.160.13:21500
-addnode=174.127.79.157:21500
-addnode=109.246.13.52:21500
-addnode=213.179.234.55:21500
-addnode=171.234.143.236:21500
-addnode=113.232.134.111:21500
+
 EOF
 }
 
@@ -234,26 +215,6 @@ logintimestamps=1
 maxconnections=256
 #bind=$NODEIP
 masternode=1
-addnode=45.32.125.213:21500
-addnode=209.95.53.4:21500
-addnode=103.72.162.143:21500
-addnode=60.54.88.105:21500
-addnode=149.28.68.21:21500
-addnode=149.28.130.182:21500
-addnode=149.28.163.67:21500
-addnode=103.72.163.99:21500
-addnode=103.72.162.142:21500
-addnode=79.198.191.160:21500
-addnode=61.144.104.52:21500
-addnode=46.223.129.34:21500
-addnode=83.220.239.51:21500
-addnode=212.14.205.116:21500
-addnode=37.232.160.13:21500
-addnode=174.127.79.157:21500
-addnode=109.246.13.52:21500
-addnode=213.179.234.55:21500
-addnode=171.234.143.236:21500
-addnode=113.232.134.111:21500
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
 EOF
